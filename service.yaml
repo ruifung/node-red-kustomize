@@ -1,0 +1,9 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: node-red
+spec:
+  ports:
+  - port: 80
+    targetPort: http
+    name: http
