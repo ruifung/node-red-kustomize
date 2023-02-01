@@ -10,10 +10,10 @@ spec:
       containers:
       - name: node-red
         image: nodered/node-red:latest
-        env:
-          - name: TZ
-            value: "Asia/Kuala_Lumpur"
         envFrom:
+          - configMapRef:
+              name: node-red-env
+              optional: true
           - secretRef:
               name: node-red-env
               optional: true
@@ -28,7 +28,6 @@ spec:
       name: data
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "ceph-rbd"
       resources:
         requests:
           storage: 5Gi
