@@ -5,6 +5,7 @@ metadata:
 spec:
   serviceName: node-red
   replicas: 1
+  selector: {}
   template:
     spec:
       securityContext:
